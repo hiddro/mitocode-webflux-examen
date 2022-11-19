@@ -1,5 +1,6 @@
 package com.examen.edu.config;
 
+import com.examen.edu.handler.CourseHandler;
 import com.examen.edu.handler.StudentHandler;
 import com.examen.edu.utils.Constants;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +16,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class RouterConfig {
 
     @Bean
-    public RouterFunction<ServerResponse> routesDishes(StudentHandler studentHandler){
+    public RouterFunction<ServerResponse> routesStudent(StudentHandler studentHandler){
         return route(GET(Constants.URL_V2 + Constants.URL_STUDENT), studentHandler::findAll)
                 .andRoute(GET(Constants.URL_V2 + Constants.URL_STUDENT + "/{id}"), studentHandler::findById)
                 .andRoute(GET(Constants.URL_V2 + Constants.URL_STUDENT + Constants.STRING_ORDER + "/{key}"), studentHandler::getOrder)
@@ -24,5 +25,12 @@ public class RouterConfig {
                 .andRoute(DELETE(Constants.URL_V2 + Constants.URL_STUDENT + "/{id}"), studentHandler::delete);
     }
 
-
+    @Bean
+    public RouterFunction<ServerResponse> routesCourse(CourseHandler courseHandler){
+        return route(GET(Constants.URL_V2 + Constants.URL_COURSE), courseHandler::findAll)
+                .andRoute(GET(Constants.URL_V2 + Constants.URL_COURSE + "/{id}"), courseHandler::findById)
+                .andRoute(POST(Constants.URL_V2 + Constants.URL_COURSE), courseHandler::create)
+                .andRoute(PUT(Constants.URL_V2 + Constants.URL_COURSE + "/{id}"), courseHandler::update)
+                .andRoute(DELETE(Constants.URL_V2 + Constants.URL_COURSE + "/{id}"), courseHandler::delete);
+    }
 }
