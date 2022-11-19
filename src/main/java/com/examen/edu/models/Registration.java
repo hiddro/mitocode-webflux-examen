@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Document(collection = "invoices")
+@Document(collection = "registrations")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Registration {
 

@@ -1,6 +1,7 @@
 package com.examen.edu.config;
 
 import com.examen.edu.handler.CourseHandler;
+import com.examen.edu.handler.LoginHandler;
 import com.examen.edu.handler.RegistrationHandler;
 import com.examen.edu.handler.StudentHandler;
 import com.examen.edu.utils.Constants;
@@ -39,5 +40,10 @@ public class RouterConfig {
     public RouterFunction<ServerResponse> routesRegistration(RegistrationHandler registrationHandler){
         return route(GET(Constants.URL_V2 + Constants.URL_REGISTRATION), registrationHandler::findAll)
                 .andRoute(POST(Constants.URL_V2 + Constants.URL_REGISTRATION), registrationHandler::create);
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> routesLogin(LoginHandler loginHandler){
+        return route(POST(Constants.URL_V2 + Constants.URL_LOGIN), loginHandler::login);
     }
 }
