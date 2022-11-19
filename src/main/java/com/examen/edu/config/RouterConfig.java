@@ -1,6 +1,7 @@
 package com.examen.edu.config;
 
 import com.examen.edu.handler.CourseHandler;
+import com.examen.edu.handler.RegistrationHandler;
 import com.examen.edu.handler.StudentHandler;
 import com.examen.edu.utils.Constants;
 import org.springframework.context.annotation.Bean;
@@ -32,5 +33,11 @@ public class RouterConfig {
                 .andRoute(POST(Constants.URL_V2 + Constants.URL_COURSE), courseHandler::create)
                 .andRoute(PUT(Constants.URL_V2 + Constants.URL_COURSE + "/{id}"), courseHandler::update)
                 .andRoute(DELETE(Constants.URL_V2 + Constants.URL_COURSE + "/{id}"), courseHandler::delete);
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> routesRegistration(RegistrationHandler registrationHandler){
+        return route(GET(Constants.URL_V2 + Constants.URL_REGISTRATION), registrationHandler::findAll)
+                .andRoute(POST(Constants.URL_V2 + Constants.URL_REGISTRATION), registrationHandler::create);
     }
 }
