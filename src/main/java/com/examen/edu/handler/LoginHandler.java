@@ -5,11 +5,8 @@ import com.examen.edu.security.models.AuthRequest;
 import com.examen.edu.security.models.AuthResponse;
 import com.examen.edu.security.utils.JWTUtil;
 import com.examen.edu.service.UserService;
-import com.examen.edu.validator.RequestValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -17,7 +14,6 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
-import java.net.URI;
 import java.util.Date;
 
 @Component
