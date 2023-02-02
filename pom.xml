@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.examen.edu</groupId>
     <artifactId>webflux-examen</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>devops-automation</version>
     <name>webflux-examen</name>
     <description>webflux-examen</description>
     <properties>
